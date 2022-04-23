@@ -1,0 +1,28 @@
+body{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+    margin: 10px;
+    background-color: #2f64ba;
+}
+
+#login {
+    background-color: white;
+    border-radius: 20px;
+    text-align: center;
+    width: 400px;
+    height: 400px;
+    padding:40px;
+}
+#subb{
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #2f64ba;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    transition: all 0.3s ease;
+}
+#subb:hover{
+    transform: scale(1.1);
+}
