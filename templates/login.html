@@ -11,12 +11,15 @@
 
         <div class="box" id="login">
             <p id="text1">Log in</p></br>
-            <form action="login" method="POST"></form>
+            <form action="login" method="POST">
+                {% csrf_token %}
             <p>Username: </p>
             <input type="text" name="username"/>
             <p>Password: </p>
-            <input type="text" name="password"/></br>
+            <input type="password" name="password"/></br>
             <input type="submit" id="subb"/>
+            
+        </form>
 
         </div>
         

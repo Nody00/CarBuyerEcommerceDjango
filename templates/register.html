@@ -1,0 +1,41 @@
+{% load static %}
+<html>
+    <title>
+
+    </title>
+    <head>
+        <link rel="stylesheet" href="{% static 'register.css' %}">
+
+    </head>
+    <body>
+
+        <form action="register" method="post">
+            {% csrf_token %}
+            <h1>Register here</h1>
+            <p>First name: </p>
+            <input type="text" name="firstname" />
+            <p>Last name: </p>
+            <input type="text" name="lastname" />
+            <p>City: </p>
+            <input type="text" name="city" />
+            <p>Username: </p>
+            <input type="text" name="username" required />
+            <p>Email: </p>
+            <input type="email" name="email" />
+            <p>Password: </p>
+            <input type="password" name="password" required />
+            <p>Repeat Password: </p>
+            <input type="password" name="password2" required />
+            <input type="submit"/>
+            {% if messages %}
+            {% for result in messages %}
+            <h1>{{result}}</h1>
+            {% endfor %}
+            {% endif %}
+
+        </form>
+
+    
+    </body>
+
+</html>

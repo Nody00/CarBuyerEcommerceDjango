@@ -10,9 +10,17 @@ class Person(models.Model):
     username = models.CharField(max_length=20, blank=True, null=True)
     password = models.CharField(max_length=20, blank=True, null=True)
 
+    empAuth_objects=models.Manager()
     class Meta:
         managed = False
         db_table = 'person'
+
+
+
+
+
+
+
 
 class Cars(models.Model):
     carid = models.IntegerField(db_column='CarID', primary_key=True)  # Field name made lowercase.
