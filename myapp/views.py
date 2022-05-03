@@ -4,25 +4,43 @@ from django.http import HttpResponse
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from .models import Person
+import mysql.connector as sql
 
 # Create your views here.
 
 def loginuser(request):
+    global em,pwd
+    if request.method=="POST":
+        m=sql.connect(host="localhost",user="root",passwd="",database='autodilerdata')
+        cursor=m.cursor()
+        d=request.POST
+        for key,value in d.items():
+            if key=="username":
+                em=value
+            if key=="password":
+                pwd=value
+        
+        c="select * from Person where username='{}' and password='{}'".format(em,pwd)
+        cursor.execute(c)
+        t=tuple(cursor.fetchall())
+        if t==():
+            return render(request,'test.html')
+        else:
+            return render(request,"home.html")
+
+    return render(request,'login.html')
+
+#def loginuser(request):   Didnt work,sql connector was not used
     if request.method=='POST':
         username = request.POST['username']
         password = request.POST['password']
-        try:
-            user = Person.empAuth_objects.get(request, username=Person.username, password=Person.password)
-            if user is not None:
-               login(request, user)
-               return redirect('home')
-            else:
-                messages.success(request,"There was an error try again")
-                return redirect('login')
-
-        except Exception as identifier:
+        user = Person.empAuth_objects.get(request, username=Person.username, password=Person.password)
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+        else:
+            messages.success(request,"There was an error try again")
             return redirect('login')
-
     else:
         return render(request,'login.html')
 
