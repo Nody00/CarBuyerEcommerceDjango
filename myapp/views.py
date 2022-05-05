@@ -3,7 +3,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
-from .models import Person
+from .models import Cars, Person
 import mysql.connector as sql
 
 # Create your views here.
@@ -65,6 +65,8 @@ def test(request):
 
 
 
+
+
 def register(request):
     if request.method=='POST':
         if request.POST.get('firstname') and request.POST.get('lastname') and request.POST.get('city') and request.POST.get('username') and request.POST.get('password'):
@@ -84,7 +86,12 @@ def register(request):
       
 
 def home(request):
-    return render(request,'home.html')
+    cars=Cars.objects.all()
+    context={
+        'cars':cars
+    }
+    return render(request,'home.html',context)
+    
 
 
 
