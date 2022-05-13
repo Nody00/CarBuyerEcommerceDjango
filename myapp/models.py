@@ -32,6 +32,7 @@ class Cars(models.Model):
     body_type = models.CharField(max_length=20, blank=True, null=True)
     transmission = models.CharField(max_length=20, blank=True, null=True)
 
+    
     class Meta:
         managed = False
         db_table = 'cars'

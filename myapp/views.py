@@ -1,10 +1,11 @@
-from random import Random
+from random import Random, random
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from .models import Cars, Person
 import mysql.connector as sql
+
 
 # Create your views here.
 
@@ -92,7 +93,25 @@ def home(request):
     }
     return render(request,'home.html',context)
     
+def sell(request):
+    if request.method=='POST':
+        if request.POST.get('model') and request.POST.get('manufacturer') and request.POST.get('model_year') and request.POST.get('fuel_type') and request.POST.get('engine_size') and request.POST.get('body_type') and request.POST.get('trans'):
+            saverecord=Cars()
+            saverecord.model=request.POST.get('model')
+            saverecord.manufacturer=request.POST.get('manufacturer')
+            saverecord.model_year=request.POST.get('model_year')
+            saverecord.fuel_type=request.POST.get('fuel_type')
+            saverecord.engine_size=request.POST.get('engine_size')
+            saverecord.body_type=request.POST.get('body_type')
+            saverecord.transmission=request.POST.get('trans')
+            saverecord.carid=0
+            saverecord.save()
+            messages.success(request,"You're car is now on sale")
+            return render(request,'sell.html')
+    else:
+            return render(request,'sell.html')
 
+    
 
 
     

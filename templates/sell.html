@@ -1,0 +1,40 @@
+{% load static %}
+<html>
+    <title>
+
+    </title>
+    <head>
+        <link rel="stylesheet" href="{% static 'login.css' %}">
+
+    </head>
+    <body id="body2">
+    <div class="box" id="registerdiv">
+
+        <form action="sell" method="post">
+            {% csrf_token %}
+            <h1>Sell your car here</h1>
+            <p>Model: </p>
+            <input type="text" name="model"  />
+            <p>Manufacturer: </p>
+            <input type="text" name="manufacturer"  />
+            <p>Model year: </p>
+            <input type="text" name="model_year"  />
+            <p>Fuel type: </p>
+            <input type="text" name="fuel_type"  />
+            <p>Engine size: </p>
+            <input type="text" name="engine_size"  />
+            <p>Body type: </p>
+            <input type="text" name="body_type"  />
+            <p>Transmission: </p>
+            <input type="text" name="trans"  />
+            <input type="submit"/>
+            <a href="{% url 'login' %}">Login page</a>
+           
+        
+        </form>
+    </div>
+
+    
+    </body>
+
+</html>
