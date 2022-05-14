@@ -10,7 +10,7 @@
     <body id="body2">
     <div class="box" id="registerdiv">
 
-        <form action="sell" method="post">
+        <form action="sell" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <h1>Sell your car here</h1>
             <p>Model: </p>
@@ -27,6 +27,8 @@
             <input type="text" name="body_type"  />
             <p>Transmission: </p>
             <input type="text" name="trans"  />
+            <p>Select image:<p>
+            <input type="file" name="car_img" />
             <input type="submit"/>
             <a href="{% url 'login' %}">Login page</a>
            

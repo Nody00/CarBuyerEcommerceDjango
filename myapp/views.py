@@ -95,7 +95,7 @@ def home(request):
     
 def sell(request):
     if request.method=='POST':
-        if request.POST.get('model') and request.POST.get('manufacturer') and request.POST.get('model_year') and request.POST.get('fuel_type') and request.POST.get('engine_size') and request.POST.get('body_type') and request.POST.get('trans'):
+        if request.POST.get('model') and request.POST.get('manufacturer') and request.POST.get('model_year') and request.POST.get('fuel_type') and request.POST.get('engine_size') and request.POST.get('body_type') and request.POST.get('trans') and request.FILES.get('car_img'):
             saverecord=Cars()
             saverecord.model=request.POST.get('model')
             saverecord.manufacturer=request.POST.get('manufacturer')
@@ -104,6 +104,7 @@ def sell(request):
             saverecord.engine_size=request.POST.get('engine_size')
             saverecord.body_type=request.POST.get('body_type')
             saverecord.transmission=request.POST.get('trans')
+            saverecord.car_img=request.FILES.get('car_img')
             saverecord.carid=0
             saverecord.save()
             messages.success(request,"You're car is now on sale")
