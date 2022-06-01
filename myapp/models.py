@@ -32,6 +32,7 @@ class Cars(models.Model):
     body_type = models.CharField(max_length=20, blank=True, null=True)
     transmission = models.CharField(max_length=20, blank=True, null=True)
     car_img=models.ImageField(null=False,upload_to="images/")
+    mileage = models.DecimalField(max_digits=10, decimal_places=0, blank=True, null=True)
 
     
     class Meta:

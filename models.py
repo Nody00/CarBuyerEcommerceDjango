@@ -86,6 +86,8 @@ class Cars(models.Model):
     engine_size = models.IntegerField(blank=True, null=True)
     body_type = models.CharField(max_length=20, blank=True, null=True)
     transmission = models.CharField(max_length=20, blank=True, null=True)
+    car_img = models.CharField(max_length=200, blank=True, null=True)
+    mileage = models.DecimalField(max_digits=10, decimal_places=0, blank=True, null=True)
 
     class Meta:
         managed = False
