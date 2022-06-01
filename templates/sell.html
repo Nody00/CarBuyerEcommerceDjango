@@ -8,7 +8,7 @@
 
     </head>
     <body id="body2">
-    <div class="box" id="registerdiv">
+    <div class="box" id="selldiv">
 
         <form action="sell" method="post" enctype="multipart/form-data">
             {% csrf_token %}
@@ -28,9 +28,9 @@
             <p>Transmission: </p>
             <input type="text" name="trans"  />
             <p>Select image:<p>
-            <input type="file" name="car_img" />
-            <input type="submit"/>
-            <a href="{% url 'login' %}">Login page</a>
+            <input type="file" name="car_img" /></br>
+            <input type="submit" value="Submit" id="subb"/></br>
+            <a href="{% url 'login' %}" class="logl">Login page</a>
            
         
         </form>

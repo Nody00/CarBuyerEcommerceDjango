@@ -1,4 +1,5 @@
 {% load static %}
+
 <html>
     <title>
 
@@ -11,13 +12,20 @@
 
         <div class="box" id="login">
             <p id="text1">Log in</p></br>
+            <div class="fail-mess">
+                {% if messages %}
+                   {% for message in messages %}
+                        {{ message }}
+                     {% endfor %}
+                {% endif %}
+            </div>
             <form action="login" method="POST">
                 {% csrf_token %}
             <p>Username: </p>
             <input type="text" name="username"/>
             <p>Password: </p>
             <input type="password" name="password"/></br>
-            <input type="submit" id="subb"/>
+            <input type="submit" id="subb" value="Submit"/>
             
         </form>
 

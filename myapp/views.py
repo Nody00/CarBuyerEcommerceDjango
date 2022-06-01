@@ -25,17 +25,18 @@ def loginuser(request):
         cursor.execute(c)
         t=tuple(cursor.fetchall())
         if t==():
-            return render(request,'test.html')
+            messages.success(request,("The Username or Password is not valid"))
+            return redirect("login")
         else:
-            return render(request,"home.html")
+            return redirect("home")
 
     return render(request,'login.html')
 
-#def loginuser(request):   Didnt work,sql connector was not used
+#def loginuser(request):  
     if request.method=='POST':
         username = request.POST['username']
         password = request.POST['password']
-        user = Person.empAuth_objects.get(request, username=Person.username, password=Person.password)
+        user = authenticate(request, username=Person.username, password=Person.password)
         if user is not None:
             login(request, user)
             return redirect('home')

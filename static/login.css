@@ -10,9 +10,13 @@ body{
     background-color: white;
     border-radius: 20px;
     text-align: center;
-    width: 400px;
-    height: 400px;
+    height: 450px;
     padding:40px;
+    margin: auto;
+    width: 40%;
+    padding: 10px;
+    
+
 }
 #subb{
     margin-top: 20px;
@@ -33,7 +37,30 @@ body{
     border-radius: 20px;
     text-align: center;
     width: 400px;
-    height: 400px;
+    height: 1100px;
     padding:40px;
+    margin: auto;
+    width: 60%;
+    padding: 10px;
     
+}
+#selldiv {
+    background-color: white;
+    border-radius: 20px;
+    text-align: center;
+    width: 400px;
+    height: 1200px;
+    padding:40px;
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+    
+}
+.fail-mess{
+    color: red;
+    font-size: 20px;
+
+}
+.logl{
+    margin-top: 10px;
 }
